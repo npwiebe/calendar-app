@@ -1,0 +1,16 @@
+bin
+coverage
+db
+log
+node_modules
+public
+tmp
+vendor
+.gitignore
+Gemfile.lock
+package-lock.json
+Rakefile
+README.md
+config/cucumber.yml
+config/platform_terms.yml
+config/locales/en.yml
