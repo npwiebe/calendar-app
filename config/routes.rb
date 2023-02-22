@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  scope 'api/v1' do
-    resources :calendars do
+  namespace 'api' do
+    namespace 'v1' do
+      resources :calendars do
+        resources :events
+      end
       resources :events
+      resources :participants
     end
-    resources :events
-    resources :participants
   end
 end
