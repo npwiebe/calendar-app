@@ -4,10 +4,8 @@ one:
   title: MyString
   details: MyString
   date: 2023-02-20
-  participants: one
 
 two:
   title: MyString
   details: MyString
   date: 2023-02-20
-  participants: two

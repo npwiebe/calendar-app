@@ -2,10 +2,8 @@
 
 one:
   event: one
-  client: one
-  type: 
+  participatable: one (User)
 
 two:
   event: two
-  client: two
-  type: 
+  participatable: two (User)

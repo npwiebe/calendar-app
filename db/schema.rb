@@ -22,6 +22,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_053958) do
     t.index ["user_id"], name: "index_api_keys_on_user_id"
   end
 
+  create_table "calendar_events", force: :cascade do |t|
+    t.bigint "calendar_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calendar_id"], name: "index_calendar_events_on_calendar_id"
+    t.index ["event_id"], name: "index_calendar_events_on_event_id"
+  end
+
   create_table "calendars", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
@@ -34,10 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_053958) do
     t.string "title"
     t.string "details"
     t.date "date"
-    t.bigint "calendar_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["calendar_id"], name: "index_events_on_calendar_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -63,7 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_053958) do
   end
 
   add_foreign_key "api_keys", "users"
+  add_foreign_key "calendar_events", "calendars"
+  add_foreign_key "calendar_events", "events"
   add_foreign_key "calendars", "users"
-  add_foreign_key "events", "calendars"
   add_foreign_key "participants", "events"
 end
