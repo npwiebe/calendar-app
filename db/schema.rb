@@ -43,8 +43,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_053958) do
     t.string "title"
     t.string "details"
     t.date "date"
+    t.string "ownable_type"
+    t.bigint "ownable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ownable_type", "ownable_id"], name: "index_events_on_ownable"
   end
 
   create_table "participants", force: :cascade do |t|
