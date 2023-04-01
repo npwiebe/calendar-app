@@ -9,5 +9,5 @@ one:
   event: one
 
 two:
-  calendar: one
-  event: one
+  calendar: two
+  event: two

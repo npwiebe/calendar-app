@@ -4,10 +4,10 @@ one:
   title: MyString
   details: MyString
   date: 2023-02-20
-  ownable: one (Client)
+  ownable: one (User)
 
 two:
   title: MyString
   details: MyString
   date: 2023-02-20
-  ownable: two (Client)
+  ownable: two (User)

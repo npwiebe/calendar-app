@@ -3,5 +3,7 @@ class Event < ApplicationRecord
   has_many :calendars, through: :calendar_events
   belongs_to :ownable, polymorphic: true
 
+  validates :ownable, presence:  true
+
   #EVENT_TYPES = {'Financial' : ['Payment'],'Social':[ 'Meeting', 'Hangout'], 'School': ['Class', 'Homework'], 'Work': ['Performance Review']}
 end
