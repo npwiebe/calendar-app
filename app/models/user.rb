@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   include Participatable
-  include Ownable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -12,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :calendars
   has_many :api_keys
+  has_many :events, through: :participants
 
   after_create :create_api_key
 

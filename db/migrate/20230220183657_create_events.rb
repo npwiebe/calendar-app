@@ -4,7 +4,6 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :details
       t.datetime :datetime
-      t.references :ownable, polymorphic: true
 
       t.timestamps
     end

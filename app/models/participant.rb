@@ -1,13 +1,15 @@
 class Participant < ApplicationRecord
-  belongs_to :event
   belongs_to :participatable, polymorphic: true
+  belongs_to :calendar, optional: true
+  belongs_to :event
 
-  PARTICIPANT_ROLES = [
+  PARTICIPANT_ACCESS_LEVEL = [
     OWNER = "owner",
     EDITOR = "editor",
     PRESENTER = "presenter",
     PARTICIPANT_ONLY = "participant_only"
   ]
+
   PARTICIPANT_STATUSES = [
     ATTENDING = "attending",
     LIKELY_ATTENDING = "likely_attending",
