@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
     create_table :events do |t|
       t.string :title
       t.string :details
-      t.date :date
+      t.datetime :datetime
       t.references :ownable, polymorphic: true
 
       t.timestamps

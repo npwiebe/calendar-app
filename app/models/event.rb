@@ -3,7 +3,11 @@ class Event < ApplicationRecord
   has_many :calendars, through: :calendar_events
   belongs_to :ownable, polymorphic: true
 
-  validates :ownable, presence:  true
+  validates :ownable, presence: true
+  validates :datetime, presence: true
+  validates :title, presence: true
 
-  #EVENT_TYPES = {'Financial' : ['Payment'],'Social':[ 'Meeting', 'Hangout'], 'School': ['Class', 'Homework'], 'Work': ['Performance Review']}
+  after_create do |record|
+    participants.create(participatable: ownable, role: Participant::OWNER)
+  end
 end

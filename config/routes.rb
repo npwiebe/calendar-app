@@ -4,13 +4,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  namespace 'api' do
-    namespace 'v1' do
+  namespace "api" do
+    namespace "v1" do
       resources :calendars do
-        resources :events, only: %i[index create]
+        resources :events do
+          resources :participants
+        end
       end
-      resources :events
-      resources :participants
+      resources :events, only: %i[index]
     end
   end
 end

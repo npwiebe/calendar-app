@@ -1,17 +1,17 @@
 class Api::V1::CalendarsController < Api::V1::BaseController
-  before_action :fetch_calendar_params, only: :create
+  before_action :fetch_calendars
+  before_action :fetch_calendar_params, only: %i[create update]
 
   def index
-    @calendars = Calendar.where(user: @user)
     render json: @calendars.to_json
   end
 
   def create
     begin
-      @calendar = Calendar.create!(@calendar_params, user: @user)
+      @calendar = @user.calendars.create!(@calendar_params)
       render json: @calendar.to_json
     rescue => e
-      render json: 'Calendar could not be created'
+      render json: "Calendar could not be created"
     end
   end
 
@@ -19,5 +19,9 @@ class Api::V1::CalendarsController < Api::V1::BaseController
 
   def fetch_calendar_params
     @calendar_params = params.permit(:title)
+  end
+
+  def fetch_calendars
+    @calendars = @user.calendars
   end
 end
