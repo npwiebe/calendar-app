@@ -32,10 +32,30 @@ User.transaction do
       { id: 2, title: "Noah's Work Calendar", user_id: 1 }
     ]
   )
+
+  EventGroup.create!(
+    [{ id: 1, title: "Wedding" }, { id: 2, title: "Planning Meetings" }]
+  )
   Event.create!(
     [
-      { id: 1, title: "N + J Wedding", datetime: "2023-08-13 14:00:00" },
-      { id: 2, title: "N Promotion", datetime: "2023-06-13 14:00:00" }
+      {
+        id: 1,
+        title: "N + J Wedding Rehearsal",
+        datetime: "2023-08-11 14:00:00",
+        event_group_id: 1
+      },
+      {
+        id: 2,
+        title: "N + J Wedding",
+        datetime: "2023-08-13 14:00:00",
+        event_group_id: 1
+      },
+      {
+        id: 3,
+        title: "N Promotion",
+        datetime: "2023-06-13 14:00:00",
+        event_group_id: 2
+      }
     ]
   )
 
@@ -58,5 +78,8 @@ User.transaction do
         role: "Bride"
       }
     ]
+  )
+  EventSchedule.create!(
+    [{ id: 1, frequency: "weekly", initial_datetime: "2023-09-11 12:00:00" }]
   )
 end

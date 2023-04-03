@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_02_172241) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_032006) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -30,12 +30,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_172241) do
     t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
+  create_table "event_groups", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_schedules", force: :cascade do |t|
+    t.string "frequency"
+    t.datetime "initial_datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "details"
     t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "event_group_id"
+    t.bigint "event_schedule_id"
+    t.index ["event_group_id"], name: "index_events_on_event_group_id"
+    t.index ["event_schedule_id"], name: "index_events_on_event_schedule_id"
   end
 
   create_table "guest_users", force: :cascade do |t|
@@ -74,6 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_172241) do
 
   add_foreign_key "api_keys", "users"
   add_foreign_key "calendars", "users"
+  add_foreign_key "events", "event_groups"
+  add_foreign_key "events", "event_schedules"
   add_foreign_key "participants", "calendars"
   add_foreign_key "participants", "events"
 end
