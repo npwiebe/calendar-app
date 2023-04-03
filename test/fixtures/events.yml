@@ -3,11 +3,9 @@
 one:
   title: MyString
   details: MyString
-  date: 2023-02-20
-  ownable: one (User)
+  datetime: 2023-02-20
 
 two:
   title: MyString
   details: MyString
-  date: 2023-02-20
-  ownable: two (User)
+  datetime: 2023-02-20

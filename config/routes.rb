@@ -11,7 +11,7 @@ Rails.application.routes.draw do
           resources :participants
         end
       end
-      resources :events, only: %i[index]
+      resources :events, only: %i[index update]
     end
   end
 end

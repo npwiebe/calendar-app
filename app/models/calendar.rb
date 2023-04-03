@@ -1,5 +1,5 @@
 class Calendar < ApplicationRecord
   belongs_to :user
-  has_many :calendar_events
-  has_many :events, through: :calendar_events
+  has_many :participants
+  has_many :events, through: :participants
 end
