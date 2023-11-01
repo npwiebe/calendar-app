@@ -9,8 +9,8 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  has_many :calendars
   has_many :api_keys
+
   has_many :events, through: :participants
 
   after_create :create_api_key

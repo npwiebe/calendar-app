@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  details: MyString
-  datetime: 2023-02-20
+event1:
+  title: 'Event 1'
+  details: 'Details for Event 1'
+  datetime: <%= Time.now %>
+  event_template: event_template1
 
-two:
-  title: MyString
-  details: MyString
-  datetime: 2023-02-20
+event2:
+  title: 'Event 2'
+  details: 'Details for Event 2'
+  datetime: <%= Time.now %>
+  event_template: event_template2

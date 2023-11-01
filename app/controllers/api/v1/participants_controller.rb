@@ -33,10 +33,6 @@ class Api::V1::ParticipantsController < Api::V1::BaseController
     @event = Event.find_by_id!(params[:event_id]) if params[:event_id]
   end
 
-  def fetch_calendar
-    @calendar = @event.participants
-  end
-
   def fetch_participants
     @participants = @event.participants
   end

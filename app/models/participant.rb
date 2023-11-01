@@ -1,6 +1,5 @@
 class Participant < ApplicationRecord
   belongs_to :participatable, polymorphic: true
-  belongs_to :calendar, optional: true
   belongs_to :event
 
   PARTICIPANT_ACCESS_LEVEL = [

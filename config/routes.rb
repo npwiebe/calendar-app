@@ -6,12 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace "api" do
     namespace "v1" do
-      resources :calendars do
-        resources :events do
-          resources :participants
-        end
-      end
-      resources :events, only: %i[index update]
+      resources :events, only: %i[index update show]
     end
   end
 end

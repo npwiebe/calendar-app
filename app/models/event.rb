@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   has_many :participants
-  has_many :calendars, through: :participants
+  belongs_to :event_template, optional: true
 
   validates :datetime, presence: true
   validates :title, presence: true

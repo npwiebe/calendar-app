@@ -4,10 +4,12 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  calendar: one
-  event: one
+event_template1:
+  title: 'Template 1'
+  frequency: 'Daily'
+  initial_datetime: <%= Time.now %>
 
-two:
-  calendar: two
-  event: two
+event_template2:
+  title: 'Template 2'
+  frequency: 'Weekly'
+  initial_datetime: <%= Time.now %>

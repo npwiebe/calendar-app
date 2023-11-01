@@ -1,9 +1,15 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+participant1:
+  event: event1
+  participatable_type: 'User'
+  participatable_id: user1
+  role: 'Organizer'
+  status: 'Attending'
+  access_level: 'Full'
 
-one:
-  event: one
-  participatable: one (User)
-
-two:
-  event: two
-  participatable: two (User)
+participant2:
+  event: event2
+  participatable_type: 'GuestUser'
+  participatable_id: guest_user1
+  role: 'Participant'
+  status: 'Not Attending'
+  access_level: 'Limited'

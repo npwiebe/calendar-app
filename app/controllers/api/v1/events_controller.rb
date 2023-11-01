@@ -28,11 +28,7 @@ class Api::V1::EventsController < Api::V1::BaseController
   private
 
   def fetch_events
-    @calendar_id = params.permit(:calendar_id)
-    @calendar = @user.calendars.find_by_id(params[:calendar_id]) if params[
-      :calendar_id
-    ]
-    @events = @calendar.present? ? @calendar.events : @user.events
+    @events = @user.events
   end
 
   def fetch_event
